@@ -1,17 +1,25 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import logo from "../svg/logo.jpeg"
+import "../css/styles/home.scss"
 
 export default class Home extends Component {
   render() {
     return (
-      <div>
-        <div>HOME</div>
-        <div>
+        <>
+        <div className="home__container">
+          <div className="home__container--logo">
+            <img src={logo} alt="logo" />
+          </div>
+  
+          <h1>Bienvenido a</h1>
+          <p>¡ A lo maracucho ve !</p>
+  
           <Link to="/product">
-              Entrar
+            <button>¡Entrar!</button>
           </Link>
         </div>
-      </div>
+      </>
     );
   }
 }

@@ -57,7 +57,7 @@ export class DataProvider extends Component {
       });
       this.setState({ cart: [...cart, ...data] });
     } else {
-      alert("The product has been added to cart.");
+      alert("¿Este producto ya ha sido agregado");
     }
   };
 
@@ -84,7 +84,7 @@ export class DataProvider extends Component {
   };
 
   removeProduct = (id) => {
-    if (window.confirm("Do you want to delete this product?")) {
+    if (window.confirm("¿Quieres realmente eliminar este producto?")) {
       const { cart } = this.state;
       cart.forEach((item, index) => {
         if (item._id === id) {
@@ -104,21 +104,7 @@ export class DataProvider extends Component {
     this.setState({ total: res });
   };
 
-//   componentDidUpdate() {
-//     localStorage.setItem("dataCart", JSON.stringify(this.state.cart));
-//     localStorage.setItem("dataTotal", JSON.stringify(this.state.total));
-//   }
 
-//   componentDidMount() {
-//     const dataCart = JSON.parse(localStorage.getItem("dataCart"));
-//     if (dataCart !== null) {
-//       this.setState({ cart: dataCart });
-//     }
-//     const dataTotal = JSON.parse(localStorage.getItem("dataTotal"));
-//     if (dataTotal !== null) {
-//       this.setState({ total: dataTotal });
-//     }
-//   }
 
   render() {
     const { products, cart, total } = this.state;

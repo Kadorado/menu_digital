@@ -1,0 +1,47 @@
+@import "../Vars.scss";
+
+.home__container--logo {
+    img {
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+    }
+  }
+  
+  .home__container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    background-color: $main-color;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+  
+    h1 {
+      color: $bg-button;
+      font-size: 2rem;
+      font-weight: 100;
+    }
+    p {
+      color: $bg-button;
+      font-size: 2rem;
+      font-weight: 100;
+      font-style: italic;
+    }
+    button {
+      border-radius: 30px;
+      background: $bg-button;
+      font-size: 20px;
+      background-color: $bg-button;
+      color: $main-color;
+      width: 100px;
+      height: 40px;
+      border-style: none;
+      border-color: $bg-button;
+      cursor: pointer;
+      outline-style: none;
+    }
+  }
+  
