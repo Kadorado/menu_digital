@@ -14,7 +14,8 @@ export class Products extends Component {
   static contextType = DataContext;
 
   render() {
-    const { products, addCart, cart } = this.context;
+    const { products, addCart, cart , changeCategorie, categorie , pataconazos} = this.context;
+    
     return (
       <div id="product">
         <div className="products__container">
@@ -35,8 +36,28 @@ export class Products extends Component {
           </div>
         </div>
 
+        <h2>Categorías</h2>
+        <ul>
+          <li>
+            <button
+             onClick={() => changeCategorie("burguer")}
+            >
+              Hamburguesas
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => changeCategorie("pataconazos")}
+            >
+              Pataconazos
+            </button>
+          </li>
+        </ul>
+
+
         <div className="card--container">
-          {products.map((product) => (
+          { categorie==="burguer" && 
+          products.map((product) => (
             <div className="card" key={product._id}>
               <img src={product.cover} alt="" />
               <div className="content">
@@ -52,10 +73,34 @@ export class Products extends Component {
                 </Link>
                 <span>${product.price}</span>
 
-                <button onClick={() => addCart(product._id)}>Agregar</button>
+                <button onClick={() => addCart(product._id, categorie)}>Agregar</button>
               </div>
             </div>
           ))}
+          { categorie ==="pataconazos" &&
+
+          pataconazos.map((product) => (
+            
+            <div className="card" key={product._id}>
+              <img src={product.cover} alt="" />
+              <div className="content">
+                <h3>{product.title}</h3>
+                <Link to={`/product/${product._id}`}
+                  style={{
+                    color: "#c54d0e",
+                    textDecoration: "none",
+                    fontSize: "15px",
+                  }}
+                >
+                  Ver ingredientes
+                </Link>
+                <span>${product.price}</span>
+
+                <button onClick={() => addCart(product._id, categorie)}>Agregar</button>
+              </div>
+            </div>
+          ))}  
+
         </div>
 
         <div className="footer_nav--card">

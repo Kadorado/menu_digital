@@ -109,7 +109,7 @@ export class Cart extends Component {
               <a href={msgWhatsapp()}>
                 <button>
                   Pedir
-                  <img src={whatsapp} alt="wh-image"></img>
+                  <img src={whatsapp} alt="imagen"></img>
                 </button>
               </a>
             </div>

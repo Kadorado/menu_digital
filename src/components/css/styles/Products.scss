@@ -19,8 +19,8 @@
     height: 80px;
     width: 80px;
     border-radius: 50%;
-    margin-top: 5px;
-    margin-left: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
   }
 
   .container__social {
@@ -28,6 +28,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    margin-top: 10px;
   }
 }
 
@@ -56,9 +57,47 @@
   }
 }
 
+
+h2{
+  color: $main-color;
+  margin-left: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 10px;
+  margin: 20px 0px;
+  background-color: rgb(238, 237, 237);
+  display: flex;
+  outline: 0;
+  flex-wrap: nowrap;
+  margin-top: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
+  overflow-y: hidden;
+
+  scroll-behavior: smooth;
+
+  li {
+    button {
+      text-decoration: none;
+      
+      padding: 10px;
+      background-color: rgb(255, 255, 255);
+      border-radius: 20px;
+      margin: 0 5px;
+      font-size: 1.4rem;
+      border-style: none;
+      border-color: white;
+      outline-style: none;
+      cursor: pointer;
+    }
+  }
+}
+
 .card--container {
   overflow-y: scroll;
-  height: 60vh;
+  height: 40vh;
 
   .card {
     display: flex;
@@ -101,8 +140,8 @@
     margin-bottom: 10px;
     
     img {
-      width: 90px;
-      height: 90px;
+      width: 100px;
+      height:100px;
       border-radius: 50%;
       margin-top: 25px;
     }
@@ -126,7 +165,7 @@
     background-color: $main-color;
     position: fixed;
     bottom: 0;
-    padding-top: 30px;
+    padding-top: 20px;
   
     h3 {
       color: white;

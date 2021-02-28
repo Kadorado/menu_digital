@@ -11,17 +11,25 @@ import { DataContext } from "../Context";
 
 export class ProductDetails extends Component {
   static contextType = DataContext;
+
   state = {
-    product: [],
+    product_detail: [],
   };
 
   getProduct = () => {
     if (this.props.match.params.id) {
-      const res = this.context.products;
+
+      var res = [];
+      if (this.context.categorie === "burguer") {
+        res = this.context.products;
+      } else {
+        res = this.context.pataconazos;
+      }
+
       const data = res.filter((item) => {
         return item._id === this.props.match.params.id;
       });
-      this.setState({ product: data });
+      this.setState({ product_detail: data });
     }
   };
 
@@ -30,7 +38,7 @@ export class ProductDetails extends Component {
   }
 
   render() {
-    const { product } = this.state;
+    const { product_detail } = this.state;
 
     return (
       <>
@@ -53,8 +61,8 @@ export class ProductDetails extends Component {
         </div>
 
 
-        {product.map((item) => (
-          <div className="container__details" key={item.id}>
+        {product_detail.map((item) => (
+          <div className="container__details" key={item._id}>
             <div className="details">
               <h3>{item.title}</h3>
               <p> {item.description}</p>

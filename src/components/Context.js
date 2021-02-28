@@ -7,20 +7,20 @@ export class DataProvider extends Component {
     products: [
       {
         _id: "1",
-        title: "La doble grosera",
-        description:
-          "Doble carne de res, tocineta , queso mozarella, cebolla caramelizada,tomate , ripio de papa, lechuga y salsa de la casa",
-        price: 10000,
-        cover: "https://i.ibb.co/yXYbkFg/la-grillua.png",
-        count: 1,
-      },
-      {
-        _id: "2",
         title: "La grosera",
         description:
           "carne artesanal de res,tocineta,queso mozarela,lechuga,tomate,salsa de la casa y ripio de papa",
         price: 9000,
-        cover: "https://i.ibb.co/yXYbkFg/la-grillua.png",
+        cover: "https://i.ibb.co/31ZKQB2/lagrosera.png",
+        count: 1,
+      },
+      {
+        _id: "2",
+        title: "La doble grosera",
+        description:
+          "Doble carne de res, tocineta , queso mozarella, cebolla caramelizada,tomate , ripio de papa, lechuga y salsa de la casa",
+        price: 10000,
+        cover: "https://i.ibb.co/XFCqfWb/ladoblegrosera.png",
         count: 1,
       },
       {
@@ -38,21 +38,42 @@ export class DataProvider extends Component {
         description:
           "Carne de res artesanal , chorizo de ternera (zenu),triple queso, doble tocineta,doble cebolla caramelizada y tus salsas favoritas ",
         price: 14000,
-        cover: "https://i.ibb.co/yXYbkFg/la-grillua.png",
+        cover: "https://i.ibb.co/hmSnL7X/lachoriburguer.png",
+        count: 1,
+      },
+    ],
+    pataconazos: [
+      {
+        _id: "6",
+        title: "Pataconazo",
+        description:
+          "Carne desmechada , jamon y queso , mozarela , lechuga, pico de gallo , salsa tartara de la casa y aguacate",
+        price: 11000,
+        cover: "https://i.ibb.co/52qVxmb/pataconazo.png",
         count: 1,
       },
     ],
     cart: [],
     total: 0,
+    categorie: "burguer",
   };
 
-  addCart = (id) => {
-    const { products, cart } = this.state;
+  addCart = (id, categorie) => {
+    const { products, pataconazos, cart } = this.state;
+    var productsRender = [];
+
+    if (categorie === "burguer") {
+      productsRender = products;
+    } else {
+      productsRender = pataconazos;
+    }
+
     const check = cart.every((item) => {
       return item._id !== id;
     });
+
     if (check) {
-      const data = products.filter((product) => {
+      const data = productsRender.filter((product) => {
         return product._id === id;
       });
       this.setState({ cart: [...cart, ...data] });
@@ -104,11 +125,21 @@ export class DataProvider extends Component {
     this.setState({ total: res });
   };
 
-
+  changeCategorie = (categorie) => {
+    this.setState({ categorie: categorie });
+    
+  };
 
   render() {
-    const { products, cart, total } = this.state;
-    const { addCart, reduction, increase, removeProduct, getTotal } = this;
+    const { products, cart, total, categorie, pataconazos } = this.state;
+    const {
+      addCart,
+      reduction,
+      increase,
+      removeProduct,
+      getTotal,
+      changeCategorie,
+    } = this;
     return (
       <DataContext.Provider
         value={{
@@ -120,6 +151,9 @@ export class DataProvider extends Component {
           removeProduct,
           total,
           getTotal,
+          changeCategorie,
+          categorie,
+          pataconazos,
         }}
       >
         {this.props.children}
