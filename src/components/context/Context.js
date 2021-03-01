@@ -9,7 +9,7 @@ export class DataProvider extends Component {
         _id: "1",
         title: "La grosera",
         description:
-          "carne artesanal de res,tocineta,queso mozarela,lechuga,tomate,salsa de la casa y ripio de papa",
+          "carne artesanal de res,tocineta,queso mozarela,lechuga,tomate,cebolla caramelizada,salsa de la casa y ripio de papa",
         price: 9000,
         cover: "https://i.ibb.co/31ZKQB2/lagrosera.png",
         count: 1,
@@ -27,7 +27,7 @@ export class DataProvider extends Component {
         _id: "3",
         title: "La grillua",
         description:
-          "Pollo , tocineta , salsa de la casa , cebolla caramelizada, queso mozarela , ripio de papa , lechuga crespa , tomate",
+          "Pollo , tocineta , salsa de la casa , cebolla caramelizada, queso mozarela , ripio de papa , lechuga, tomate",
         price: 11000,
         cover: "https://i.ibb.co/yXYbkFg/la-grillua.png",
         count: 1,
@@ -36,7 +36,7 @@ export class DataProvider extends Component {
         _id: "4",
         title: "Chori burguer",
         description:
-          "Carne de res artesanal , chorizo de ternera (zenu),triple queso, doble tocineta,doble cebolla caramelizada y tus salsas favoritas ",
+          "Carne de res artesanal , chorizo de ternera (zenu),triple queso, doble tocineta,doble cebolla caramelizada y tus salsas favoritas, lechuga , tomate, ripio de papa ",
         price: 14000,
         cover: "https://i.ibb.co/hmSnL7X/lachoriburguer.png",
         count: 1,
@@ -47,7 +47,7 @@ export class DataProvider extends Component {
         _id: "6",
         title: "Pataconazo",
         description:
-          "Carne desmechada , jamon y queso , mozarela , lechuga, pico de gallo , salsa tartara de la casa y aguacate",
+          "Carne desmechada , jamon y queso , mozarela , lechuga, pico de gallo , salsas de la casa y aguacate",
         price: 11000,
         cover: "https://i.ibb.co/52qVxmb/pataconazo.png",
         count: 1,

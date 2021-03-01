@@ -1,27 +1,39 @@
 @import "./Vars.scss";
 
-.Cart--container{
-    overflow-y: hidden;
-    height: 100vh;
+.Cart--container {
+  overflow-y: hidden;
+  height: 100vh;
 }
-
 
 .header__order {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding: 20px;
+  padding: 15px;
   background-color: $main-color;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  h2 {
-    color: white;
+
+  .mi_orden {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    h2 {
+      color: white;
+    }
+    p {
+      color: white;
+      position: relative;
+      bottom: 0;
+      text-align: center;
+      font-size: 10px;
+    }
   }
 
   .Logo {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
   }
   .back {
@@ -32,110 +44,102 @@
 }
 
 .container__order-cart {
-
   overflow-y: scroll;
-  height: 60vh;
-  
-  .details_cart{
-      
-     
+  height: 63vh;
+
+  .details_cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    justify-content: space-around;
+
+    img {
+      height: 90px;
+      width: 90px;
+      margin-top: 20px;
+      border-radius: 50%;
+    }
+    .row {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top:20px;
-      margin-bottom: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      margin-bottom: 20px;
+      h2 {
+        font-size: 15px;
+        color: $main-color;
+      }
+      span {
+        font-size: 20px;
+        color: $main-color;
+      }
+    }
+    .amount {
+      display: flex;
+      flex-direction: row;
       justify-content: space-around;
-      
-     
-      img{
-          height: 90px;
-          width: 90px;
-          margin-top: 20px;
-          border-radius: 50%;
+      button {
+        background-color: $main-color;
+        cursor: pointer;
+        height: 30px;
+        width: 30px;
+        border-radius: 10px;
+        border-color: $main-color;
+        outline: none;
+        font-size: 20px;
+        color: white;
       }
-      .row{
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          margin-bottom: 20px;
-          h2 {
-              font-size: 15px;
-              color: $main-color;
-          }
-          span{
-              font-size: 20px;
-              color: $main-color;
-          }
-          
+      span {
+        font-size: 20px;
+      }
+    }
 
+    .delete {
+      position: relative;
+      left: 100px;
+      bottom: 200px;
+      img {
+        height: 30px;
+        width: 30px;
       }
-      .amount{
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-          button{
-              background-color: $main-color;
-              cursor: pointer;
-              height: 30px;
-              width: 30px;
-              border-radius: 10px;
-              border-color: $main-color;
-              outline: none;
-              font-size: 20px;
-              color: white;
-              
-
-          }
-          span{
-            font-size: 20px;
-        }
-      }
-
-      .delete{
-          position: relative;
-          left: 100px;
-          bottom: 200px;
-          img{
-              height: 30px;
-              width: 30px;
-          }
-      }
+    }
   }
 }
 
+.total {
+  position: fixed;
+  background-color: $main-color;
+  padding: 30px;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  h3 {
+    font-size: 15px;
+    color: white;
+  }
+  button {
+    height: 50px;
+    width: 130px;
+    border-style: none;
+    border-radius: 5px;
+    border-color: white;
+    background-color: white;
+    color: $main-color;
+    text-align: center;
+    font-size: 20px;
+    outline: none;
+    cursor: pointer;
 
-.total{
-    position: fixed;
-    background-color: $main-color;
-    padding: 30px;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    h3{
-        font-size: 15px;
-        color: white;
+    img {
+      height: 20px;
+      width: 20px;
+      position: relative;
+      bottom: 0px;
+      left: 20px;
     }
-    button{
-        height: 30px;
-        width: 130px;
-        border-radius: 5px;
-        border-color: white;
-        background-color: white;
-        color: $main-color;
-        text-align: center;
-        font-size: 20px;
-        outline: none;
-        cursor: pointer;
-
-        img{
-            height: 20px;
-            width:20px;
-            position: relative;
-            bottom: 0px;
-            left: 20px;
-        }
-    }
+  }
 }

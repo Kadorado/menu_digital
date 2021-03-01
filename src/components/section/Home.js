@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assests/static/logo.jpeg"
-import "../../assests/styles/home.scss"
+import "../../assests/styles/Home.scss"
 
 export default class Home extends Component {
   render() {
