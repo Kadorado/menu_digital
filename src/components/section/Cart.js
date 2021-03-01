@@ -36,6 +36,7 @@ export class Cart extends Component {
     } else {
       function msgWhatsapp() {
         const codeCountry = "57";
+        // Change this cellphonenumber
         const numberCellPhone = `${codeCountry}3006368229`;
         const API_WHATSAPP = `https://wa.me/${numberCellPhone}?text=`;
 

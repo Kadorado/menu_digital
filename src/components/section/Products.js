@@ -12,22 +12,55 @@ import "../../assests/styles/Products.scss";
 
 export class Products extends Component {
   static contextType = DataContext;
+  
 
   render() {
-    const { products, addCart, cart , changeCategorie, categorie , pataconazos} = this.context;
-    
+    const {
+      products,
+      addCart,
+      cart,
+      changeCategorie,
+      categorie,
+      pataconazos,
+    } = this.context;
+
+    // Change this cellphone number !!
+    const cellPhoneNumber = "573006368229"
+
     return (
       <div id="product">
         <div className="products__container">
           <Link to="/">
             <img src={logo} alt="logo"></img>
           </Link>
-
           <div className="container__social--schedule">
             <div className="container__social">
-              <img src={imageWhatsapp} alt="Whatsapp" />
-              <img src={imageFacebook} alt="Facebook" />
-              <img src={imageInstagram} alt="instagram"></img>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={
+                  `https://api.whatsapp.com/send/?phone=${cellPhoneNumber}&text=Escribeme%20Tu%20duda%20:A%20lo%20maracucho%20ve`
+
+                }
+              >
+                <img src={imageWhatsapp} alt="Whatsapp" />
+              </a>
+
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={"https://www.facebook.com/alomaracuchove.maracuchos.3"}
+              >
+                <img src={imageFacebook} alt="Facebook" />
+              </a>
+
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={"https://www.instagram.com/a_lo_maracucho_ve/?r=nametag"}
+              >
+                <img src={imageInstagram} alt="instagram"></img>
+              </a>
             </div>
             <div className="container__schedule">
               <h3>Horario: Jueves a Sábados </h3>
@@ -39,68 +72,66 @@ export class Products extends Component {
         <h2>Categorías</h2>
         <ul>
           <li>
-            <button
-             onClick={() => changeCategorie("burguer")}
-            >
+            <button onClick={() => changeCategorie("burguer")}>
               Hamburguesas
             </button>
           </li>
           <li>
-            <button
-              onClick={() => changeCategorie("pataconazos")}
-            >
+            <button onClick={() => changeCategorie("pataconazos")}>
               Pataconazos
             </button>
           </li>
         </ul>
 
-
         <div className="card--container">
-          { categorie==="burguer" && 
-          products.map((product) => (
-            <div className="card" key={product._id}>
-              <img src={product.cover} alt="" />
-              <div className="content">
-                <h3>{product.title}</h3>
-                <Link to={`/product/${product._id}`}
-                  style={{
-                    color: "#c54d0e",
-                    textDecoration: "none",
-                    fontSize: "15px",
-                  }}
-                >
-                  Ver ingredientes
-                </Link>
-                <span>${product.price}</span>
+          {categorie === "burguer" &&
+            products.map((product) => (
+              <div className="card" key={product._id}>
+                <img src={product.cover} alt="" />
+                <div className="content">
+                  <h3>{product.title}</h3>
+                  <Link
+                    to={`/product/${product._id}`}
+                    style={{
+                      color: "#c54d0e",
+                      textDecoration: "none",
+                      fontSize: "15px",
+                    }}
+                  >
+                    Ver ingredientes
+                  </Link>
+                  <span>${product.price}</span>
 
-                <button onClick={() => addCart(product._id, categorie)}>Agregar</button>
+                  <button onClick={() => addCart(product._id, categorie)}>
+                    Agregar
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
-          { categorie ==="pataconazos" &&
+            ))}
+          {categorie === "pataconazos" &&
+            pataconazos.map((product) => (
+              <div className="card" key={product._id}>
+                <img src={product.cover} alt="" />
+                <div className="content">
+                  <h3>{product.title}</h3>
+                  <Link
+                    to={`/product/${product._id}`}
+                    style={{
+                      color: "#c54d0e",
+                      textDecoration: "none",
+                      fontSize: "15px",
+                    }}
+                  >
+                    Ver ingredientes
+                  </Link>
+                  <span>${product.price}</span>
 
-          pataconazos.map((product) => (
-            
-            <div className="card" key={product._id}>
-              <img src={product.cover} alt="" />
-              <div className="content">
-                <h3>{product.title}</h3>
-                <Link to={`/product/${product._id}`}
-                  style={{
-                    color: "#c54d0e",
-                    textDecoration: "none",
-                    fontSize: "15px",
-                  }}
-                >
-                  Ver ingredientes
-                </Link>
-                <span>${product.price}</span>
-
-                <button onClick={() => addCart(product._id, categorie)}>Agregar</button>
+                  <button onClick={() => addCart(product._id, categorie)}>
+                    Agregar
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}  
-
+            ))}
         </div>
 
         <div className="footer_nav--card">
