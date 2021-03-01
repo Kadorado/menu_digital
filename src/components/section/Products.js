@@ -69,8 +69,8 @@ export class Products extends Component {
               </a>
             </div>
             <div className="container__schedule">
-              <h3>Horario: Jueves a Sábados </h3>
-              <p>5:00pm a 11:00pm</p>
+              <h3>Horario: Jueves a Domingos </h3>
+              <p>5:00pm a 10:00pm</p>
             </div>
           </div>
         </div>

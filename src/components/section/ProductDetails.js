@@ -54,8 +54,8 @@ export class ProductDetails extends Component {
               <img src={imageInstagram} alt="instagram"></img>
             </div>
             <div className="container__schedule--details">
-              <h3>Horario: Lunes - Domingos</h3>
-              <p>6:30pm - 1:00am</p>
+              <h3>Horario: Jueves - Domingos</h3>
+              <p>5:00pm - 10:00pm</p>
             </div>
           </div>
         </div>
