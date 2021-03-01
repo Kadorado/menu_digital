@@ -75,13 +75,14 @@ ul {
   padding-left: 30px;
   padding-right: 30px;
   overflow-y: hidden;
+ 
 
   scroll-behavior: smooth;
 
   li {
     button {
       text-decoration: none;
-      
+      color: $main-color;
       padding: 10px;
       background-color: rgb(255, 255, 255);
       border-radius: 20px;
@@ -91,6 +92,7 @@ ul {
       border-color: white;
       outline-style: none;
       cursor: pointer;
+      font-weight: bold;
     }
   }
 }
