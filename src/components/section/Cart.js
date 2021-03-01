@@ -35,23 +35,27 @@ export class Cart extends Component {
       );
     } else {
       function msgWhatsapp() {
-        const API_WHATSAPP = "https://wa.me/573006368229?text=";
+        const codeCountry = "57";
+        const numberCellPhone = `${codeCountry}3006368229`;
+        const API_WHATSAPP = `https://wa.me/${numberCellPhone}?text=`;
 
         let waMsj = "";
-        let str = "";
-        cart.forEach((item) => {
-          if (item.count !== 0) {
-            let subst = `${item.title}%20(${item.count})%20subtotal:$${
-              item.count*item.price
-            }%20`;
-            str += subst;
+        let message = "";
+
+        cart.forEach((product) => {
+          if (product.count !== 0) {
+            let submessage = `${product.title}%20(${
+              product.count
+            })%20subtotal:$${product.count * product.price}%20`;
+            message += submessage;
           }
         });
-        let waS = `${API_WHATSAPP}${str}`;
+
+        let waS = `${API_WHATSAPP}${message}`;
         waS = waS.replace(/ /g, "%20");
-          
+
         waMsj = `${waS}%20El%20Total%20es%20:${total}`;
-        
+
         return waMsj;
       }
 
@@ -62,32 +66,37 @@ export class Cart extends Component {
               <Link to="/product">
                 <img src={back} alt="back" className="back"></img>
               </Link>
-
-              <h2>Mi Orden</h2>
+              <div className="mi_orden">
+                <h2>Mi Orden</h2>
+                <p>
+                  Recuerda que tu pedido sera enviado a whatsapp donde
+                  coordinaremos el pago y el envio
+                </p>
+              </div>
               <img src={logo} alt="logo" className="Logo"></img>
             </div>
 
             <div className="container__order-cart">
-              {cart.map((item) => (
-                <div className="details_cart" key={item._id}>
-                  <img src={item.cover} alt="" />
+              {cart.map((product) => (
+                <div className="details_cart" key={product._id}>
+                  <img src={product.cover} alt="" />
                   <div className="box">
                     <div className="row">
-                      <h2>{item.title}</h2>
-                      <span>${item.price * item.count}</span>
+                      <h2>{product.title}</h2>
+                      <span>${product.price * product.count}</span>
                     </div>
                     <div className="amount">
                       <button
                         className="count"
-                        onClick={() => reduction(item._id)}
+                        onClick={() => reduction(product._id)}
                       >
                         {" "}
                         -{" "}
                       </button>
-                      <span>{item.count}</span>
+                      <span>{product.count}</span>
                       <button
                         className="count"
-                        onClick={() => increase(item._id)}
+                        onClick={() => increase(product._id)}
                       >
                         {" "}
                         +{" "}
@@ -96,7 +105,7 @@ export class Cart extends Component {
                   </div>
                   <div
                     className="delete"
-                    onClick={() => removeProduct(item._id)}
+                    onClick={() => removeProduct(product._id)}
                   >
                     <img src={trash} alt="trash"></img>
                   </div>
