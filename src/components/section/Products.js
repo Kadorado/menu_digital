@@ -30,9 +30,9 @@ export class Products extends Component {
       let showTotal = new Intl.NumberFormat("es-CO", {
         style: "currency",
         currency: "COP",
-        maximumSignificantDigits: 3
+        maximumSignificantDigits: 3,
       }).format(price);
-      
+
       return showTotal;
     }
 
@@ -42,6 +42,7 @@ export class Products extends Component {
           <Link to="/">
             <img src={logo} alt="logo"></img>
           </Link>
+
           <div className="container__social--schedule">
             <div className="container__social">
               <a
@@ -147,7 +148,11 @@ export class Products extends Component {
               <img src={CartIcon} alt="Shopping" />
             </button>
           </Link>
+          <p className="eslogan">
+          !!Gracias por preferirnos y no quedarte con las ganas¡¡
+        </p>
         </div>
+       
       </div>
     );
   }
