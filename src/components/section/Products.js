@@ -24,7 +24,7 @@ export class Products extends Component {
     } = this.context;
 
     // Change this cellphone number !!
-    const cellPhoneNumber = "573006368229";
+    const cellPhoneNumber = "573104555126";
 
     function showPrice(price) {
       let showTotal = new Intl.NumberFormat("es-CO", {
