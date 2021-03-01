@@ -12,7 +12,6 @@ import "../../assests/styles/Products.scss";
 
 export class Products extends Component {
   static contextType = DataContext;
-  
 
   render() {
     const {
@@ -25,7 +24,17 @@ export class Products extends Component {
     } = this.context;
 
     // Change this cellphone number !!
-    const cellPhoneNumber = "573006368229"
+    const cellPhoneNumber = "573006368229";
+
+    function showPrice(price) {
+      let showTotal = new Intl.NumberFormat("es-CO", {
+        style: "currency",
+        currency: "COP",
+        maximumSignificantDigits: 3
+      }).format(price);
+      
+      return showTotal;
+    }
 
     return (
       <div id="product">
@@ -38,10 +47,7 @@ export class Products extends Component {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href={
-                  `https://api.whatsapp.com/send/?phone=${cellPhoneNumber}&text=Escribeme%20Tu%20duda%20:A%20lo%20maracucho%20ve`
-
-                }
+                href={`https://api.whatsapp.com/send/?phone=${cellPhoneNumber}&text=Escribeme%20Tu%20duda%20:A%20lo%20maracucho%20ve`}
               >
                 <img src={imageWhatsapp} alt="Whatsapp" />
               </a>
@@ -100,7 +106,7 @@ export class Products extends Component {
                   >
                     Ver ingredientes
                   </Link>
-                  <span>${product.price}</span>
+                  <span>{showPrice(product.price)}</span>
 
                   <button onClick={() => addCart(product._id, categorie)}>
                     Agregar
@@ -124,7 +130,7 @@ export class Products extends Component {
                   >
                     Ver ingredientes
                   </Link>
-                  <span>${product.price}</span>
+                  <span>{showPrice(product.price)}</span>
 
                   <button onClick={() => addCart(product._id, categorie)}>
                     Agregar

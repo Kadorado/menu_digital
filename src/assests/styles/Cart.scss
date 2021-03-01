@@ -45,7 +45,7 @@
 
 .container__order-cart {
   overflow-y: scroll;
-  height: 63vh;
+  height: 70vh;
 
   .details_cart {
     display: flex;
@@ -62,39 +62,48 @@
       margin-top: 20px;
       border-radius: 50%;
     }
-    .row {
+
+    .box{
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 20px;
-      h2 {
-        font-size: 15px;
-        color: $main-color;
+      .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        h2 {
+          font-size: 15px;
+          color: $main-color;
+        }
+        span {
+          font-size: 20px;
+          color: $main-color;
+        }
       }
-      span {
-        font-size: 20px;
-        color: $main-color;
+      .amount {
+        
+        
+        .count {
+          margin-right: 15px;
+          margin-left: 15px;
+          background-color: $main-color;
+          cursor: pointer;
+          height: 30px;
+          width: 30px;
+          border-radius: 10px;
+          border-color: $main-color;
+          outline: none;
+          font-size: 20px;
+          color: white;
+        }
+        span {
+          font-size: 20px;
+        }
       }
+
     }
-    .amount {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      button {
-        background-color: $main-color;
-        cursor: pointer;
-        height: 30px;
-        width: 30px;
-        border-radius: 10px;
-        border-color: $main-color;
-        outline: none;
-        font-size: 20px;
-        color: white;
-      }
-      span {
-        font-size: 20px;
-      }
-    }
+
 
     .delete {
       position: relative;

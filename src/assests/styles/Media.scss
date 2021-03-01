@@ -1,3 +1,14 @@
+@media only screen and (min-width: 280px) and (max-width: 320px) {
+  .card--container {
+    overflow-y: scroll;
+    height: 37vh;
+  }
+  // .container__order-cart{
+  //   height: 60vh;
+  // }
+}
+
+
 @media only screen and (min-width: 360px) and (max-width: 412px) {
   .card--container {
     overflow-y: scroll;
@@ -32,5 +43,13 @@
   .card--container {
     overflow-y: scroll;
     height: 50vh;
+  }
+}
+
+
+@media only screen and (min-width: 375px) and (min-height:812px){
+  .card--container {
+    overflow-y: scroll;
+    height: 57vh;
   }
 }

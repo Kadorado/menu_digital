@@ -34,6 +34,16 @@ export class Cart extends Component {
         </>
       );
     } else {
+      function showPrice(price) {
+        let showTotal = new Intl.NumberFormat("es-CO", {
+          style: "currency",
+          currency: "COP",
+          maximumSignificantDigits: 3,
+        }).format(price);
+
+        return showTotal;
+      }
+
       function msgWhatsapp() {
         const codeCountry = "57";
         // Change this cellphonenumber
@@ -47,7 +57,7 @@ export class Cart extends Component {
           if (product.count !== 0) {
             let submessage = `${product.title}%20(${
               product.count
-            })%20subtotal:$${product.count * product.price}%20`;
+            })%20subtotal:${showPrice(product.count * product.price)}%20`;
             message += submessage;
           }
         });
@@ -55,7 +65,7 @@ export class Cart extends Component {
         let waS = `${API_WHATSAPP}${message}`;
         waS = waS.replace(/ /g, "%20");
 
-        waMsj = `${waS}%20El%20Total%20es%20:${total}`;
+        waMsj = `${waS}%20El%20Total%20es%20:${ showPrice(total)}`;
 
         return waMsj;
       }
@@ -84,23 +94,20 @@ export class Cart extends Component {
                   <div className="box">
                     <div className="row">
                       <h2>{product.title}</h2>
-                      <span>${product.price * product.count}</span>
+                      <span>{showPrice(product.price * product.count)}</span>
                     </div>
                     <div className="amount">
                       <button
                         className="count"
                         onClick={() => reduction(product._id)}
                       >
-                        {" "}
-                        -{" "}
+                      <span>-</span>
                       </button>
                       <span>{product.count}</span>
                       <button
                         className="count"
                         onClick={() => increase(product._id)}
-                      >
-                        {" "}
-                        +{" "}
+                      ><span>+</span>
                       </button>
                     </div>
                   </div>
@@ -115,7 +122,7 @@ export class Cart extends Component {
             </div>
 
             <div className="total">
-              <h3>Total: ${total}</h3>
+              <h3>Total: {showPrice(total)}</h3>
               <a href={msgWhatsapp()}>
                 <button>
                   Pedir
