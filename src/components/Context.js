@@ -19,7 +19,7 @@ export class DataProvider extends Component {
         title: "La doble grosera",
         description:
           "Doble carne de res, tocineta , queso mozarella, cebolla caramelizada,tomate , ripio de papa, lechuga y salsa de la casa",
-        price: 10000,
+        price: 12000,
         cover: "https://i.ibb.co/XFCqfWb/ladoblegrosera.png",
         count: 1,
       },
