@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
-import "../css/styles/ProductDetails.scss";
+import "../../assests/styles/ProductDetails.scss";
 
-import back from "../svg/back.svg";
-import imageWhatsapp from "../svg/whatsapp.svg";
-import imageFacebook from "../svg/facebook.svg";
-import imageInstagram from "../svg/instagram.svg";
-import { DataContext } from "../Context";
+import back from "../../assests/static/back.svg";
+import imageWhatsapp from "../../assests/static/whatsapp.svg";
+import imageFacebook from "../../assests/static/facebook.svg";
+import imageInstagram from "../../assests/static/instagram.svg";
+import { DataContext } from "../context/Context";
 
 export class ProductDetails extends Component {
   static contextType = DataContext;

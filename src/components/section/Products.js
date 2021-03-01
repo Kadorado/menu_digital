@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { DataContext } from "../Context";
+import { DataContext } from "../context/Context";
 
-import CartIcon from "../svg/shopping-cart-solid.svg";
+import CartIcon from "../../assests/static/shopping-cart-solid.svg";
 
-import logo from "../../components/svg/logo.jpeg";
-import imageWhatsapp from "../../components/svg/whatsapp.svg";
-import imageFacebook from "../../components/svg/facebook.svg";
-import imageInstagram from "../../components/svg/instagram.svg";
-import "../css/styles/Products.scss";
+import logo from "../../assests/static/logo.jpeg";
+import imageWhatsapp from "../../assests/static/whatsapp.svg";
+import imageFacebook from "../../assests/static/facebook.svg";
+import imageInstagram from "../../assests/static/instagram.svg";
+import "../../assests/styles/Products.scss";
 
 export class Products extends Component {
   static contextType = DataContext;

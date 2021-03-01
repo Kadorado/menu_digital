@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { DataContext } from "../Context";
+import { DataContext } from "../context/Context";
 import { Link } from "react-router-dom";
-import back from "../svg/back.svg";
-import logo from "../svg/logo.jpeg";
-import trash from "../svg/trash.svg";
-import "../css/styles/Cart.scss";
-import whatsapp from "../svg/whatsapp.svg";
+import back from "../../assests/static/back.svg";
+import logo from "../../assests/static/logo.jpeg";
+import trash from "../../assests/static/trash.svg";
+import "../../assests/styles/Cart.scss";
+import whatsapp from "../../assests/static/whatsapp.svg";
 
 export class Cart extends Component {
   static contextType = DataContext;
