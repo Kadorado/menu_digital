@@ -50,7 +50,7 @@ export class DataProvider extends Component {
         _id: "6",
         title: "Pataconazo",
         description:
-          "Carne desmechada , jamon y queso , mozarela , lechuga, pico de gallo , salsas de la casa y aguacate",
+          "Carne desmechada , jamon , queso mozarela , lechuga, pico de gallo , salsas de la casa y aguacate",
         price: 11000,
         cover: "https://i.ibb.co/52qVxmb/pataconazo.png",
         count: 1,
