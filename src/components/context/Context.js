@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import swal from "sweetalert";
+import  "../../assests/styles/Context.scss"
+
+
 export const DataContext = React.createContext();
 
 export class DataProvider extends Component {
@@ -115,6 +118,7 @@ export class DataProvider extends Component {
       text: "¿Estas seguro que deseas eliminar este producto?",
       icon: "warning",
       buttons: ["No", "Si"],
+      
       
     }).then((response) => {
       if (response) {
