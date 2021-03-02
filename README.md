@@ -1,3 +1,6 @@
+this is a digital menu app, made for business https://www.facebook.com/alomaracuchove.maracuchos.3
+and you can find it at https://menu-digital-fawn.vercel.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
