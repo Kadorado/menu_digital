@@ -113,9 +113,11 @@ ul {
       justify-content: space-around;
       text-align: center;
       align-items: center;
+      margin-bottom: 15px;
       h3 {
         color: $main-color;
         font-size: 20px;
+        margin-bottom: 5px;
       }
       span {
         color: $main-color;

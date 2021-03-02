@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import swal from "sweetalert";
 export const DataContext = React.createContext();
 
 export class DataProvider extends Component {
@@ -78,7 +78,12 @@ export class DataProvider extends Component {
       });
       this.setState({ cart: [...cart, ...data] });
     } else {
-      alert("¿Este producto ya ha sido agregado");
+      swal({
+        title: "¡Este producto ya ha sido agregado!",
+        text: "Podras aumentar la cantidad en la siguiente sección",
+        icon: "success",
+        button: "ok",
+      });
     }
   };
 
@@ -105,16 +110,25 @@ export class DataProvider extends Component {
   };
 
   removeProduct = (id) => {
-    if (window.confirm("¿Quieres realmente eliminar este producto?")) {
-      const { cart } = this.state;
-      cart.forEach((item, index) => {
-        if (item._id === id) {
-          cart.splice(index, 1);
-        }
-      });
-      this.setState({ cart: cart });
-      this.getTotal();
-    }
+    swal({
+      title: "Eliminar producto",
+      text: "¿Estas seguro que deseas eliminar este producto?",
+      icon: "warning",
+      buttons: ["No", "Si"],
+      
+    }).then((response) => {
+      if (response) {
+        const { cart } = this.state;
+        cart.forEach((item, index) => {
+          if (item._id === id) {
+            cart.splice(index, 1);
+          }
+        });
+        this.setState({ cart: cart });
+        this.getTotal();
+        swal({ text: "EL producto se elimino de tu orden", icon: "success" });
+      }
+    });
   };
 
   getTotal = () => {
@@ -127,11 +141,8 @@ export class DataProvider extends Component {
 
   changeCategorie = (categorie) => {
     this.setState({ categorie: categorie });
-    
   };
 
-
-  
   render() {
     const { products, cart, total, categorie, pataconazos } = this.state;
     const {

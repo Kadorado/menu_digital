@@ -35,13 +35,23 @@ export class Cart extends Component {
       );
     } else {
       function showPrice(price) {
-        let showTotal = new Intl.NumberFormat("es-CO", {
-          style: "currency",
-          currency: "COP",
-          maximumSignificantDigits: 3,
-        }).format(price);
+        var showTotal;
 
-        return showTotal;
+        if (price.toString().length === 4) {
+          let totalStr = price.toString();
+          let firstStr = totalStr.substring(0, 1);
+          showTotal = "$ " + firstStr + "." + totalStr.substring(1);
+
+          return showTotal;
+        } else {
+          showTotal = new Intl.NumberFormat("es-CO", {
+            style: "currency",
+            currency: "COP",
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+          }).format(price);
+          return showTotal;
+        }
       }
 
       function msgWhatsapp() {
@@ -65,7 +75,7 @@ export class Cart extends Component {
         let waS = `${API_WHATSAPP}${message}`;
         waS = waS.replace(/ /g, "%20");
 
-        waMsj = `${waS}%20El%20Total%20es%20:${ showPrice(total)}`;
+        waMsj = `${waS}%20El%20Total%20es%20:${showPrice(total)}`;
 
         return waMsj;
       }
@@ -101,13 +111,14 @@ export class Cart extends Component {
                         className="count"
                         onClick={() => reduction(product._id)}
                       >
-                      <span>-</span>
+                        <span>-</span>
                       </button>
                       <span>{product.count}</span>
                       <button
                         className="count"
                         onClick={() => increase(product._id)}
-                      ><span>+</span>
+                      >
+                        <span>+</span>
                       </button>
                     </div>
                   </div>

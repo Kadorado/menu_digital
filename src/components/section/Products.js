@@ -27,20 +27,30 @@ export class Products extends Component {
     const cellPhoneNumber = "573104555126";
 
     function showPrice(price) {
-      let showTotal = new Intl.NumberFormat("es-CO", {
-        style: "currency",
-        currency: "COP",
-        maximumSignificantDigits: 3,
-      }).format(price);
+      var showTotal;
 
-      return showTotal;
+      if (price.toString().length === 4) {
+        let totalStr = price.toString();
+        let firstStr = totalStr.substring(0,1);
+        showTotal = "$ "+firstStr + "." + totalStr.substring(1);
+
+        return showTotal;
+      } else {
+        showTotal = new Intl.NumberFormat("es-CO", {
+          style: "currency",
+          currency: "COP",
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        }).format(price);
+        return showTotal;
+      }
     }
 
-    let msgwhatsap = "Gracias por comunicarte con A LO MARACUCHO VE. ¿Qué podemos servirte Regalame por favorNombre Unidad de Madera donde te encuentras: Número de apartamento En un momento tomaremos tú pedido,Gracias por preferirnos y no quedarte con las ganas";
-
+    let msgwhatsap =
+      "Gracias por comunicarte con A LO MARACUCHO VE. ¿Qué podemos servirte Regalame por favorNombre Unidad de Madera donde te encuentras: Número de apartamento En un momento tomaremos tú pedido,Gracias por preferirnos y no quedarte con las ganas";
 
     msgwhatsap = msgwhatsap.replace(/ /g, "%20");
-    
+
     return (
       <div id="product">
         <div className="products__container">
@@ -105,9 +115,13 @@ export class Products extends Component {
                   <Link
                     to={`/product/${product._id}`}
                     style={{
-                      color: "#c54d0e",
+                      color: "black",
                       textDecoration: "none",
                       fontSize: "15px",
+                      border: "1px solid black",
+                      borderRadius: "5px",
+                      padding: "5px",
+                      marginBottom: "5px",
                     }}
                   >
                     Ver ingredientes
@@ -129,14 +143,19 @@ export class Products extends Component {
                   <Link
                     to={`/product/${product._id}`}
                     style={{
-                      color: "#c54d0e",
+                      color: "black",
                       textDecoration: "none",
                       fontSize: "15px",
+                      border: "1px solid black",
+                      borderRadius: "5px",
+                      padding: "5px",
+                      marginBottom: "5px",
                     }}
                   >
                     Ver ingredientes
                   </Link>
                   <span>{showPrice(product.price)}</span>
+                  
 
                   <button onClick={() => addCart(product._id, categorie)}>
                     Agregar
@@ -154,10 +173,9 @@ export class Products extends Component {
             </button>
           </Link>
           <p className="eslogan">
-          !!Gracias por preferirnos y no quedarte con las ganas¡¡
-        </p>
+            ¡¡Gracias por preferirnos y no quedarte con las ganas!!
+          </p>
         </div>
-       
       </div>
     );
   }
