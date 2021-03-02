@@ -130,6 +130,8 @@ export class DataProvider extends Component {
     
   };
 
+
+  
   render() {
     const { products, cart, total, categorie, pataconazos } = this.state;
     const {

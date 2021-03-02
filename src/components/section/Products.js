@@ -36,6 +36,11 @@ export class Products extends Component {
       return showTotal;
     }
 
+    let msgwhatsap = "Gracias por comunicarte con A LO MARACUCHO VE. ¿Qué podemos servirte Regalame por favorNombre Unidad de Madera donde te encuentras: Número de apartamento En un momento tomaremos tú pedido,Gracias por preferirnos y no quedarte con las ganas";
+
+
+    msgwhatsap = msgwhatsap.replace(/ /g, "%20");
+    
     return (
       <div id="product">
         <div className="products__container">
@@ -48,7 +53,7 @@ export class Products extends Component {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href={`https://api.whatsapp.com/send/?phone=${cellPhoneNumber}&text=Escribeme%20Tu%20duda%20:A%20lo%20maracucho%20ve`}
+                href={`https://api.whatsapp.com/send/?phone=${cellPhoneNumber}&text=${msgwhatsap}`}
               >
                 <img src={imageWhatsapp} alt="Whatsapp" />
               </a>
